@@ -25,7 +25,7 @@ app.use(rateLimiter());
 
 app.get("/", (req, res) => {
   res.send(
-    "Welcome to QuestsHub! Docs: https://github.com/itsbrijeshio/QuestsHub-API.git"
+    "Welcome to QuestsHub! Docs: https://github.com/itsbrijeshio/QuestsHub-API/blob/main/Readme.md"
   );
 });
 
