@@ -5,6 +5,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import routes from "./routes";
 import { envs } from "./config";
+import { rateLimiter } from "./middlewares";
 
 const app = express();
 
@@ -20,9 +21,12 @@ app.use(helmet());
 app.use(morgan("combined"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(rateLimiter());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to QuestsHub! Docs: https://github.com/itsbrijeshio/QuestsHub-API.git");
+  res.send(
+    "Welcome to QuestsHub! Docs: https://github.com/itsbrijeshio/QuestsHub-API.git"
+  );
 });
 
 app.use("/api", routes);
